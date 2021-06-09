@@ -36,4 +36,4 @@ add <i> --saved_planet=<MODEL_FILE> </i> to your running script
   
 
 
-  For any additional help please contact Hila Glanz- glanz@tx.technion.ac.il
+  For any additional help please contact Hila Glanz - glanz@tx.technion.ac.il , Mor Rozner - morozner@campus.technion.ac.il  
