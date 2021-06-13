@@ -41,8 +41,8 @@ class OrbitalEvolution:
             print('we reached e=',self.eccentricity_cutoff,' couldn\'t evolve further')
             raise Exception("we reached e=0 or a=0 AU, couldn\'t evolve further")
 
-        if self.separation <= self.Roche_radius():
-            print('planet is ripped apart because the separation is smaller than its Roche radius')
+        if self.separation * (1-self.eccentricity) <= self.Roche_radius():
+            print('planet is ripped apart because the pericenter is smaller than its Roche radius')
             raise Exception("planet is ripped apart")
 
         raise Exception("not implemented")
@@ -62,4 +62,4 @@ class OrbitalEvolution:
         return luminosity * (self.planet.radius/self.separation)**2/(1-self.eccentricity**2)**0.5
 
     def Roche_radius(self,eta=2.7):#eta from Guillochon et al 2011
-        return eta*self.planet.radius*(2*self.star.mass/self.planet.mass)**(1/3)
+        return eta*self.planet.radius*(self.star.mass/self.planet.mass)**(1/3)
