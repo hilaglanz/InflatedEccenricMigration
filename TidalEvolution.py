@@ -32,8 +32,8 @@ class TidalEvolution(OrbitalEvolution):
             (21*constants.G*self.planet.mass*self.planet_apsidal_motion_constant*self.planet_lag_time*self.period()*(1-self.eccentricity)**9*self.f()*self.eccentricity**2)
   
     def evolve(self, time, number_of_time_steps=1000):
-        if self.separation <= self.Roche_radius():
-            print('planet is ripped apart because the separation is smaller than its Roche radius')
+        if self.separation * (1-self.eccentricity) <= self.Roche_radius():
+            print('planet is ripped apart because the pericenter is smaller than its Roche radius')
             raise Exception("planet is ripped apart")
 
         if self.eccentricity <= self.eccentricity_cutoff:
